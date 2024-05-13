@@ -80,7 +80,7 @@ export default function App() {
   );
 }
 
-function TodoItem({ item = {}, updateTodoStatus, deleteTodo }) {
+function TodoItem({item, updateTodoStatus, deleteTodo}: {item: any, updateTodoStatus: any, deleteTodo: any}) {
   return (
     <div className="todo-item-container">
       <input
