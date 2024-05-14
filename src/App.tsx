@@ -1,14 +1,14 @@
-import './App.css';
-import { useState } from 'react';
+import "./App.css";
+import { useState } from "react";
 
 export default function App() {
   const initialItems = [
-    { id: 1, text: 'Create', done: false },
-    { id: 2, text: 'Awesome', done: false },
-    { id: 3, text: 'Code', done: true },
+    { id: 1, text: "Create", done: false },
+    { id: 2, text: "Awesome", done: false },
+    { id: 3, text: "Code", done: true },
   ];
 
-  const initialNewTodo = 'test';
+  const initialNewTodo = "test";
   const [items, setItems] = useState(initialItems);
   const [newTodoValue, setNewTodoValue] = useState(initialNewTodo);
 
@@ -25,7 +25,7 @@ export default function App() {
       ...items,
       { id: generateNewId(), text: newTodoValue, done: false },
     ]);
-    setNewTodoValue('');
+    setNewTodoValue("");
   }
 
   function updateTodoStatus(itemId: number) {
@@ -56,7 +56,7 @@ export default function App() {
             onChange={(e) => setNewTodoValue(e.target.value)}
           />
           <button
-            disabled={newTodoValue === ''}
+            disabled={newTodoValue === ""}
             className="secondary"
             onClick={addTodo}
           >
@@ -80,7 +80,15 @@ export default function App() {
   );
 }
 
-function TodoItem({item, updateTodoStatus, deleteTodo}: {item: any, updateTodoStatus: any, deleteTodo: any}) {
+function TodoItem({
+  item,
+  updateTodoStatus,
+  deleteTodo,
+}: {
+  item: any;
+  updateTodoStatus: any;
+  deleteTodo: any;
+}) {
   return (
     <div className="todo-item-container">
       <input
@@ -88,12 +96,12 @@ function TodoItem({item, updateTodoStatus, deleteTodo}: {item: any, updateTodoSt
         checked={item.done}
         onChange={() => updateTodoStatus(item.id)}
       />
-      <span style={{ textDecorationLine: item.done ? 'line-through' : '' }}>
+      <span style={{ textDecorationLine: item.done ? "line-through" : "" }}>
         {item.text}
       </span>
       <button className="danger" onClick={() => deleteTodo(item.id)}>
-        {' '}
-        Delete{' '}
+        {" "}
+        Delete{" "}
       </button>
     </div>
   );
